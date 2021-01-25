@@ -2,6 +2,7 @@
 #include <gtkmm/entry.h>
 #include <gtkmm/fixed.h>
 #include <gtkmm/window.h>
+#include <gtkmm/widget.h>
 #include <gtkmm/button.h>
 #include <gtkmm/builder.h>
 #include <gtkmm/grid.h>

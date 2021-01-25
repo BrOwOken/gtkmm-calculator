@@ -147,6 +147,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="style.css" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GtkmmCalculator.cpp" />
