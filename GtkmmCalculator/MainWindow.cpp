@@ -2,9 +2,11 @@
 #include "gtkmm/builder.h"
 
 
-int lastNum = 0;
-int currentNum = 0;
+long long lastNum = 0;
+long long currentNum = 0;
 char lastOperation;
+
+void calc();
 
 MainWindow::MainWindow()
 {
@@ -57,25 +59,57 @@ void MainWindow::btn_click(int i) {
     else if (i == 10) {
         currentNum = 0;
         lastNum = 0;
+        lastOperation = ' ';
         this->label.set_text(std::to_string(currentNum));
     }
     else if (i == 11) {
-
+        calc();
+        this->label.set_text(std::to_string(lastNum));
     }
     else if (i == 12) {
+        calc();
         lastOperation = '+';
+        this->label.set_text(std::to_string(lastNum));
     }
     else if (i == 13) {
+        calc();
         lastOperation = '-';
+        this->label.set_text(std::to_string(lastNum));
     }
     else if (i == 14) {
+        calc();
         lastOperation = '*';
+        this->label.set_text(std::to_string(lastNum));
     }
     else if (i == 15) {
+        calc();
         lastOperation = '/';
+        this->label.set_text(std::to_string(lastNum));
     }
     
 }
 void calc() {
-
+    long long result = 0;
+    if (lastOperation == '+') {
+        result = lastNum + currentNum;
+    }
+    else if (lastOperation == '-') {
+        result = lastNum - currentNum;
+    }
+    else if (lastOperation == '*') {
+        result = lastNum * currentNum;
+    }
+    else if (lastOperation == '/') {
+        if (currentNum != 0) {
+            result = lastNum / currentNum;
+        }
+        else return;
+    }
+    else if (lastOperation == ' ' || lastOperation == NULL) {
+        lastNum = currentNum;
+        currentNum = 0;
+        return;
+    }
+    lastNum = result;
+    currentNum = 0;
 }
